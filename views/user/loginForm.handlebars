@@ -1,17 +1,28 @@
-<a href="/">Back</a>
-<div class="row">
+
+<div class="row" style="margin: auto; width: 80%; padding: 10px;">
     <div class="col-sm-3"><br/>
-        <form id="loginform" method="post">
+        <form id="loginform" method="post" action="/login">
             <!-- -->
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" value="{{username}}">
+                <label for="username">Email</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter email" value="{{email}}">
             </div>
             <!-- -->
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="{{password}}">
             </div>
+            <!-- -->
+            <div class="form-group hidden" id="error-container">
+                <div class="alert alert-danger text-goes-here">
+                </div>
+            </div>
+            <!-- -->
+            {{#if message}}
+                <div class="alert alert-danger">
+                    <p><strong></strong>{{message}}</p>
+                </div>
+            {{/if}}
             <!-- -->
             <div class="form-group">
                 <button type="submit" class="btn btn-default">Login</button>

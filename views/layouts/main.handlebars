@@ -11,12 +11,31 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<!--    <link rel="stylesheet" href="/public/css/style1.css">-->
 </head>
 
+<!--<body style="background: #000; color: #ffffff">-->
 <body>
     <header>
-        <h1 style="margin-left: 7%">Trade Link</h1>
+        <table>
+            <tr>
+                <td>
+                    <a href="/"><img src="/public/images/stevensLogo.png" alt="Stevens" align="center" style="height: 180px"></a>
+                    <h1 style="text-align: center">Trade Link</h1>
+                </td>
+                <td style="padding-top: 0px;">
+                    <img src="/public/images/stevensView.jpg" alt="Stevens Trade Link" align="right" style="width: 1280px; height: 220px">
+                </td>
+            </tr>
+
+            <!--<tr style="border: double;">
+                <img src="/public/images/stevens_brick_wall.jpg" alt="Stevens Trade Link" align="right" style="width:1250px;height:150px;">
+            </tr>
+                <tr style="border: double;">
+                    <h1 style="margin-left: 7%">Trade Link</h1>
+                </tr>-->
+        </table>
     </header>
     <main class="container">
                 <div class="row">
@@ -25,7 +44,7 @@
             </div>
         </div>
     </main>
-
+    {{> (lookup . 'partial') }}
 </body>
 
 </html>

@@ -1,0 +1,21 @@
+<div>
+    <table style="width: 100%">
+        <tr>
+            <td style="padding-left: 80px">
+                <h3>Hello, {{user.firstname}}</h3>
+            </td>
+            <td>
+                <strong><a href="/logout"><h3>Sign out</h3></a></strong>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left: 80px">
+                <input type="hidden" id="userid" name="userid" value="{{user._id}}">
+            </td>
+            <td>
+                <img src="/{{user.imagePath}}" alt="userprofilepic" style="width: 100px; height: 100px"/>
+            </td>
+        </tr>
+    </table>
+
+</div>

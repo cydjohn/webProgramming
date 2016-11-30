@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-10"><br/>
         <form id="signupform" onsubmit="return validateSignupForm()" method="post" action="/signup" enctype="multipart/form-data">
-            <table>
+            <table class="tableBorder">
                 <tr>
                     <div class="form-group hidden" id="error-container">
                         <div class="alert alert-danger text-goes-here">
@@ -18,7 +18,7 @@
                     {{/if}}
                 </tr>
             </table>
-            <table>
+            <table class="tableBorder">
                 <tr>
                     <td>
                         <div class="form-group">
@@ -150,7 +150,11 @@
     table {
         width: 100%;
         border-collapse: separate;
-        border-spacing: 50px 0;
+
+    }
+
+    .tableBorder {
+        border-spacing: 50px 0 !important;
     }
 
     td {

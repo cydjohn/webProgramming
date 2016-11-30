@@ -11,6 +11,12 @@
         <tr>
             <td style="padding-left: 80px">
                 <input type="hidden" id="userid" name="userid" value="{{user._id}}">
+                <div class="innerDiv">
+                    <strong><a href="/sell/sellProduct">Sell a product</a></strong>
+                </div>
+                <div class="innerDiv">
+                    <strong><a href="/buy/buyProduct">Buy a product</a></strong>
+                </div>
             </td>
             <td>
                 <img src="/{{user.imagePath}}" alt="userprofilepic" style="width: 100px; height: 100px"/>
@@ -19,3 +25,19 @@
     </table>
 
 </div>
+
+<style>
+    .outerDiv {
+        display: flex;
+    }
+
+    .innerDiv {
+        flex: 1;
+        padding: 1em;
+        padding-left: 80px
+    }
+
+    a {
+        color: #FFFFFF;
+    }
+</style>

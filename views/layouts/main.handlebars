@@ -5,46 +5,51 @@
     <meta charset="utf-8">
     <title>Trade Link</title>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-        crossorigin="anonymous">
+          crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-        crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<!--    <link rel="stylesheet" href="/public/css/style1.css">-->
+    <!--    <link rel="stylesheet" href="/public/css/style1.css">-->
+
 </head>
 
-<!--<body style="background: #000; color: #ffffff">-->
-<body>
-    <header>
-        <table>
-            <tr>
-                <td>
-                    <a href="/"><img src="/public/images/stevensLogo.png" alt="Stevens" align="center" style="height: 180px"></a>
-                    <h1 style="text-align: center">Trade Link</h1>
-                </td>
-                <td style="padding-top: 0px;">
-                    <img src="/public/images/stevensView.jpg" alt="Stevens Trade Link" align="right" style="width: 1280px; height: 220px">
-                </td>
-            </tr>
+<!--<body style="background-color: #000000; color: #ffffff;">-->
+<body style="background-color: #808080; color: #ffffff;">
 
-            <!--<tr style="border: double;">
-                <img src="/public/images/stevens_brick_wall.jpg" alt="Stevens Trade Link" align="right" style="width:1250px;height:150px;">
-            </tr>
-                <tr style="border: double;">
-                    <h1 style="margin-left: 7%">Trade Link</h1>
-                </tr>-->
-        </table>
-    </header>
-    <main class="container">
-                <div class="row">
-            <div>
-                {{{body}}}
-            </div>
+<!--<body>-->
+<header>
+    <table>
+        <tr>
+            <td>
+                <!--<a href="/"><img src="/public/images/stevensLogo.png" alt="Stevens" align="center" style="height: 180px"></a>-->
+                <h1 style="text-align: center; padding-top: 0px;">Trade Link</h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left: 50px;">
+                <img src="/public/images/Stevens_Image.jpg" alt="Stevens Trade Link"  style="width: 1260px; height: 220px">
+            </td>
+        </tr>
+
+        <!--<tr style="border: double;">
+            <img src="/public/images/stevens_brick_wall.jpg" alt="Stevens Trade Link" align="right" style="width:1250px;height:150px;">
+        </tr>
+            <tr style="border: double;">
+                <h1 style="margin-left: 7%">Trade Link</h1>
+            </tr>-->
+    </table>
+</header>
+<main class="container" >
+    <div class="row" >
+        <div>
+            {{{body}}}
         </div>
-    </main>
-    {{> (lookup . 'partial') }}
+    </div>
+</main>
+{{> (lookup . 'partial') }}
 </body>
 
 </html>

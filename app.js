@@ -104,6 +104,28 @@ app.post("/signup",upload.single('userPic'),function (req, res, next){
     next();
 });
 
+app.post("/sell/sellProduct",upload.single('productImage'),function (req, res, next){
+    console.log("product request");
+    console.log(req.file);
+    if(req.file){
+        var tmp_path = req.file.path;
+        var imageId = uuid.v4();
+        var target_path = 'public/productImages/' + imageId;
+        req.body.image = target_path;
+
+        var src = fs.createReadStream(tmp_path);
+        var dest = fs.createWriteStream(target_path);
+        src.pipe(dest);
+        src.on('end', function() {console.log("Product Image Uploaded Successfully"); });
+        src.on('error', function(err) { res.json({error: true,message:err}); });
+    }
+    else {
+        var target_path = 'public/productImages/defaultProfilePic.jpg';
+        req.body.image = target_path;
+    }
+    next();
+});
+
 const handlebarsInstance = exphbs.create({
         defaultLayout: 'main',
         // Specify helpers which are only registered on this instance.

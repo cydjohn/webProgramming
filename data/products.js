@@ -58,7 +58,7 @@ let exportedMethods = {
                     description: requestBody.description,
                     condition: requestBody.condition,
                     purchasedYear: requestBody.purchasedYear,
-                    productImage: requestBody.productImage,
+                    productImage: requestBody.image,
                     status: requestBody.status
                 };
         console.log("newly created product");

@@ -23,7 +23,7 @@ router.post("/sellProduct", function (request, response) {
     let userEmailID=request.body.email;
     console.log(userEmailID);
     //let UserID;//,currUser;
-    
+
         userData.getUserByEmail(userEmailID).then((user)=>{
             console.log("inside here #########");
             console.log(user);
@@ -42,7 +42,8 @@ router.post("/sellProduct", function (request, response) {
                 console.log(product.user);
                 console.log(product._id);
                 //response.redirect("/products/"+product._id);
-                response.json({ success: true, message: product});
+                response.redirect("/products/"+product._id);
+                //response.json({ success: true, message: product});
             }).catch((e) => {
                 //console.log("*********");
                 console.log(e);

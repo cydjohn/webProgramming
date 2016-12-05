@@ -1,13 +1,21 @@
 
 <div class="row">
     <div class="col-sm-10"><br/>
-        <form id="sellform" method="post">
+        <form id="sellform" onsubmit="return validateSellForm()" method="post" action="/sell/sellProduct" enctype="multipart/form-data">
             <table class="tableBorder">
                 <tr>
-                        <div class="form-group hidden" id="error-container">
+                    <div class="form-group hidden" id="error-container">
+                        <div class="alert alert-danger text-goes-here">
+                            {{ error }}
+                        </div>
+                    </div>
+                    {{#if error }}
+                        <div class="form-group" id="error-container">
                             <div class="alert alert-danger text-goes-here">
+                                {{ error }}
                             </div>
                         </div>
+                    {{/if}}
                 </tr>
             </table>
             <table class="tableBorder">
@@ -49,7 +57,7 @@
                         <div class="form-group">
                             <label for="textverify">Product images</label>
                             <input type="file" class="form-control" id="productImage" name="productImage" value="{{productImage}}">
-                            <!--<img style="height:50px;width:50px;float:left;" id="imageHome" src="#" alt="your image" />-->
+                            <img style="height:50px;width:50px;float:left;" id="imageHome" src="#" alt="productimage" />
                         </div>
                     </td>
                     <td>

@@ -1,10 +1,10 @@
 /**
  * Created by sanketh on 11/26/2016.
  */
+const bcrypt = require("bcrypt-nodejs");
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
 const uuid = require('node-uuid');
-const bcrypt = require("bcrypt-nodejs");
 
 
 let exportedMethods = {

@@ -1,11 +1,12 @@
 /**
  * Created by Priyanka on 11/29/2016.
  */
+const data = require("../data");
 const mongoCollections = require("../config/mongoCollections");
 const products = mongoCollections.products;
-const uuid = require('node-uuid');
-const data = require("../data");
 const userData = data.users;
+const uuid = require('node-uuid');
+
 
 let exportedMethods = {
     getProductByID(id) {

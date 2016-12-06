@@ -1,14 +1,15 @@
 /**
  * Created by sanketh on 11/26/2016.
  */
-const express = require('express');
-const router = express.Router();
 const data = require("../data");
-const userData = data.users;
-const path = require('path');
+const express = require('express');
 var fs = require('fs');
-var xss = require('xss');
+const path = require('path');
 const passport = require("passport");
+const router = express.Router();
+const userData = data.users;
+var xss = require('xss');
+
 
 router.get("/", function (request, response) {
     console.log("session check in /");

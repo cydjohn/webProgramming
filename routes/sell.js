@@ -1,13 +1,14 @@
 /**
  * Created by Priyanka on 11/29/2016.
  */
-const express = require('express');
-const router = express.Router();
 const data = require("../data");
-const productData = data.products;
-const userData = data.users;
-const path = require('path');
+const express = require('express');
 const passport = require("passport");
+const path = require('path');
+const productData = data.products;
+const router = express.Router();
+const userData = data.users;
+
 
 router.get("/sellProduct", function (request, response) {
     console.log("Get Method for sell form.")

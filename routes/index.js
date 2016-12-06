@@ -4,10 +4,10 @@
  */
 const browseRoutes = require("./browse");
 const data = require("../data");
-const productRoutes = require("./product");
-const sellRoutes = require("./sell");
 const path = require('path');
 const productsData = data.products;
+const productRoutes = require("./product");
+const sellRoutes = require("./sell");
 const users = require("./users");
 const usersData = data.users;
 

@@ -30,6 +30,10 @@ build/Release
 node_modules
 jspm_packages
 
+# Images directories
+public/productImages/*
+public/profilePictures/*
+
 # Optional npm cache directory
 .npm
 

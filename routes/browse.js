@@ -11,8 +11,9 @@ router.get("/", (req, res) => {
     console.log(req.session.passport);
     if (req.session.passport && req.session.passport.user) {
         productData.getAllProducts().then((allProducts)=>{
+          console.log("Returned products:");
           console.log(allProducts);
-          res.render("browse/allProducts", { partial: "browse-products-scripts", products: allProducts });
+          res.render("product/browseProducts", { partial: "browse-products-scripts", products: allProducts });
         }).catch(() => {
             res.redirect("/");
         });

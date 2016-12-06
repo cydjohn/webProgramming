@@ -12,7 +12,7 @@ const userData = data.users;
 
 router.get("/:id", function (request, response) {
     console.log("Get Method for Product details Page.")
-    /* call function getProduct using the user id here in product 
+    /* call function getProduct using the user id here in product
     data object link to user data object and get the user details.
     pass these details to productInfo page
     */
@@ -43,7 +43,7 @@ router.get("/", function (request, response) {
     console.log(request.session.passport);
     if(request.session.passport && request.session.passport.user) {
         let userInfo;
-        productData.getAllProducts(request.session.passport.user).then((userproducts)=>{
+        productData.getAllUserProducts(request.session.passport.user).then((userproducts)=>{
             userData.getUserByID(request.session.passport.user).then((user)=>{
                 userInfo=user;
                 response.render("product/myProducts", {partial:"userlogin-scripts", products: userproducts, user: userInfo});

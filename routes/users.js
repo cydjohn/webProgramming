@@ -94,7 +94,7 @@ router.post("/signup", function (request, response) {
     }
     else
     {
-        var target_path = 'public/profilePictures/defaultProfilePic.jpg';
+        var target_path = 'public/images/defaultProfilePic.jpg';
         request.body.image = target_path;
     }*/
         var requestData = request.body;

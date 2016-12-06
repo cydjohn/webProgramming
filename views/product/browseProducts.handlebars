@@ -1,0 +1,11 @@
+<section>
+  <h1>All Products Testing</h1>
+  {{#each products}}
+    <article class="product">
+      <h2><a href="/product/{{_id}}">{{title}}</a></h2>
+      <p>Description: {{description}}</p>
+      <p>Condition: {{condition}}</p>
+      <img src="/{{productImage}}"/>
+    </article>
+  {{/each}}
+</section>

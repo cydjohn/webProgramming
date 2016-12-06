@@ -98,7 +98,7 @@ app.post("/signup",upload.single('userPic'),function (req, res, next){
             src.on('error', function(err) { res.json({error: true,message:err}); });
         }
         else {
-            var target_path = 'public/profilePictures/defaultProfilePic.jpg';
+            var target_path = 'public/images/defaultProfilePic.jpg';
             req.body.image = target_path;
         }
     next();
@@ -120,7 +120,7 @@ app.post("/sell/sellProduct",upload.single('productImage'),function (req, res, n
         src.on('error', function(err) { res.json({error: true,message:err}); });
     }
     else {
-        var target_path = 'public/productImages/defaultProfilePic.jpg';
+        var target_path = 'public/images/defaultProfilePic.jpg';
         req.body.image = target_path;
     }
     next();

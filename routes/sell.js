@@ -27,8 +27,8 @@ router.post("/sellProduct", function (request, response) {
     console.log("Post Method for sell form.")
     //var duplicateUserCheck = false;
     //console.log(request.body);
-    let userEmailID=request.body.email;
-    console.log(userEmailID);
+    //let userEmailID=request.body.email;
+    //console.log(userEmailID);
     //let UserID;//,currUser;
 
         userData.getUserByID(request.session.passport.user).then((user)=>{
@@ -60,8 +60,8 @@ router.post("/sellProduct", function (request, response) {
         }).catch((e)=>{
              response.json({ error: true, message:"outer error"});
         });
-        
-        
+
+
     //response.render("user/signupform",  {partial:"mainscreen-scripts"});
 });
 

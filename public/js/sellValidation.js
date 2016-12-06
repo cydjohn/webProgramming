@@ -16,7 +16,7 @@ function validateSellForm()
             var productImage = $("#productImage").val();
             //var status = $("#status").val();
             var status = $('#status :selected').text();
-            var email = $("#email").val();
+            //var email = $("#email").val();
 
 
             var errorContainer = document.getElementById("error-container");
@@ -31,7 +31,7 @@ function validateSellForm()
             if (!purchasedYear) throw "Must provide year of product purchase.";
             if (!status) throw "Must provide status.";
             // if (!productImage) throw "Must provide product's image.";
-            if (!email) throw "Must provide email.";
+            //if (!email) throw "Must provide email.";
 
 /*            //next();
             // if (title && description && condition && purchasedYear && status && productImage && email) {

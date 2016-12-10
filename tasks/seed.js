@@ -10,6 +10,7 @@ const uuid = require('node-uuid');
 dbConnection().then(db => {
     return db.dropDatabase().then(() => {
         return dbConnection;
+
     }).then((db) => {
         requestBody = {
           _id: uuid.v4(),
@@ -26,6 +27,7 @@ dbConnection().then(db => {
           imagePath: "public/images/defaultProfilePic.jpg"
         }
         return users.addUser(requestBody);
+
     }).then((steven) => {
         requestBody = {
           _id: uuid.v4(),
@@ -42,6 +44,31 @@ dbConnection().then(db => {
           imagePath: "public/images/defaultProfilePic.jpg"
         }
         return users.addUser(requestBody);
+
+    }).then((stefan) => {
+        requestBody = {
+          _id: uuid.v4(),
+          title: "Rare jade panda",
+          description: "It's a rare panda!!",
+          condition: "Like new",
+          purchasedYear: "2009",
+          productImage: "public/images/defaultProfilePic.jpg",
+          status: "Unsold"
+        }
+        return products.addProduct(requestBody, "stefan@stevens.edu");
+
+    }).then((rareJadePanda) => {
+        requestBody = {
+          _id: uuid.v4(),
+          title: "Gold",
+          description: "It's just gold.",
+          condition: "Shiny",
+          purchasedYear: "1776",
+          productImage: "public/images/defaultProfilePic.jpg",
+          status: "Unsold"
+        }
+        return products.addProduct(requestBody, "steven@stevens.edu");
+
     }).then(() => {
         console.log("Done seeding database");
         db.close();

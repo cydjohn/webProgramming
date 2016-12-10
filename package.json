@@ -4,6 +4,7 @@
   "description": "CS546 Final Prject - A Stevens’s internal product trading management system",
   "main": "app.js",
   "scripts": {
+    "seed":  "node ./tasks/seed.js",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

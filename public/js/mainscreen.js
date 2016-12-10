@@ -10,14 +10,14 @@
             var email = $("#email").val();
             var password = $("#password").val();
             var cnfpassword = $("#cnfpassword").val();
-            var phone = $("#userphone").val();
-            var lastname = $("#lastname").val();
-            var firstname = $("#firstname").val();
+            var phone = $("#phoneNumber").val();
+            var lastName = $("#lastName").val();
+            var firstName = $("#firstName").val();
             var city = $("#city").val();
             var address = $("#address").val();
             var state = $("#state").val();
-            var zipcode = $("#zipcode").val();
-            var verifyText = $("#textverify").val();
+            var zipCode = $("#zipCode").val();
+            var verifyText = $("#textVerify").val();
             var gender;
 
             if (document.getElementById('mgender').checked) {
@@ -34,16 +34,16 @@
             if (!email) errorMessage = "Please provide the email.\n";
             if (!password) errorMessage = errorMessage+"Please provide the password.\n";
             if (!cnfpassword) errorMessage = errorMessage+"Please confirm password.\n";
-            if (!firstname) errorMessage = errorMessage+"Please provide the firstname.\n";
-            if (!lastname) errorMessage = errorMessage+"Please provide the lastname.\n";
+            if (!firstName) errorMessage = errorMessage+"Please provide the firstName.\n";
+            if (!lastName) errorMessage = errorMessage+"Please provide the lastName.\n";
             if (!phone || phone==undefined || !phone.match(phoneValidation) || phone.length<10)
                     errorMessage = errorMessage+"Please provide a valid contact number.\n";
-            if (!address || !city || !state || !zipcode)
+            if (!address || !city || !state || !zipCode)
                 errorMessage = errorMessage+"Please provide all the address field values.\n";
             if (password.length <8 || password.length > 15) errorMessage = errorMessage+"Please provide a Password containing atleast 8 characters and maximum of 15 characters.\n"
             /*if (!address) errorMessage = errorMessage+"Please provide the address.\n";
             if (!city) errorMessage = errorMessage+"Please provide the city.\n";
-            if (!lastname) errorMessage = errorMessage+"Please provide the lastname.\n";
+            if (!lastName) errorMessage = errorMessage+"Please provide the lastName.\n";
 */
             //console.log($("#codeValue").val());
             //console.log(profilePic);
@@ -68,14 +68,14 @@
                     data: JSON.stringify({
                         email: email,
                         password: password,
-                        firstname: firstname,
-                        lastname: lastname,
+                        firstName: firstName,
+                        lastName: lastName,
                         gender: gender,
                         phone: phone,
                         address: address,
                         city: city,
                         state: state,
-                        zipcode: zipcode
+                        zipCode: zipCode
                     })
                 };
 

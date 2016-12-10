@@ -107,8 +107,8 @@ router.post("/signup", function (request, response) {
                 //console.log("*********");
                 console.log(e);
                 //response.json({ error: true, message:"Email already exists."});
-            response.render("user/signupform",{error: e,partial:"mainscreen-scripts",firstname: xss(requestData.firstname), lastname: xss(requestData.lastname), gender: requestData.gender, email:xss(requestData.email),password:requestData.password,
-                userphone:xss(requestData.userphone),address:xss(requestData.address),city:xss(requestData.city),state:xss(requestData.state),zipcode:xss(requestData.zipcode)});
+            response.render("user/signupform",{error: e,partial:"mainscreen-scripts",firstName: xss(requestData.firstName), lastName: xss(requestData.lastName), gender: requestData.gender, email:xss(requestData.email),password:requestData.password,
+                phoneNumber:xss(requestData.phoneNumber),address:xss(requestData.address),city:xss(requestData.city),state:xss(requestData.state),zipCode:xss(requestData.zipCode)});
             //return;
         });
     //response.render("user/signupform",  {partial:"mainscreen-scripts"});

@@ -24,7 +24,9 @@ dbConnection().then(db => {
           city: "Turtleville",
           state: "NJ",
           zipCode: 11234,
-          imagePath: "public/images/defaultProfilePic.jpg"
+          image: "public/images/defaultProfilePic.jpg",
+          securityQuestion: 2,
+          securityAnswer: "Vasel"
         }
         return users.addUser(requestBody);
 
@@ -35,7 +37,7 @@ dbConnection().then(db => {
           description: "It's just gold.",
           condition: "Shiny",
           purchasedYear: "1776",
-          productImage: "/public/images/defaultProfilePic.jpg",
+          productImage: "public/images/defaultProfilePic.jpg",
           status: "Unsold"
         }
         return products.addProduct(requestBody, steven["_id"]);
@@ -53,7 +55,9 @@ dbConnection().then(db => {
           city: "Amerigo",
           state: "CA",
           zipCode: 57328,
-          imagePath: "/public/images/defaultProfilePic.jpg"
+          image: "public/images/defaultProfilePic.jpg",
+          securityQuestion: 1,
+          securityAnswer: "Gengenbach"
         }
         return users.addUser(requestBody);
 
@@ -64,7 +68,7 @@ dbConnection().then(db => {
           description: "It's a rare panda!!",
           condition: "Like new",
           purchasedYear: "2009",
-          productImage: "/public/images/defaultProfilePic.jpg",
+          productImage: "public/images/defaultProfilePic.jpg",
           status: "Unsold"
         }
         return products.addProduct(requestBody, stefan["_id"]);

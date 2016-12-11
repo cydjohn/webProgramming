@@ -24,11 +24,11 @@ function validateSignupForm()
             var zipCode = $("#zipCode").val();
             var verifyText = $("#textVerify").val();
             var gender;
-            var securityQues = $('#securityquestion :selected').text();
-            var securityAns = $('#securityanswer').val();
+            var securityQues = $('#securityQuestion :selected').text();
+            var securityAns = $('#securityAnswer').val();
             console.log(securityQues);
             console.log(securityAns);
-            console.log($('#securityquestion').val());
+            console.log($('#securityQuestion').val());
             if (document.getElementById('mgender').checked) {
                 gender = document.getElementById('mgender').value;
             }
@@ -178,8 +178,8 @@ function validateUserUpdateForm()
             var state = $("#state").val();
             var zipCode = $("#zipCode").val();
             var gender;
-            var securityQues = $('#securityquestion :selected').text();
-            var securityAns = $('#securityanswer').val();
+            var securityQues = $('#securityQuestion :selected').text();
+            var securityAns = $('#securityAnswer').val();
 
             var errorContainer = document.getElementById("error-container");
             var errorTextElement = errorContainer.getElementsByClassName("text-goes-here")[0];
@@ -277,9 +277,9 @@ function validateUserUpdateForm()
             if(password != cnfpassword) {
                 throw "Password confirmation failed.";
             }
-            var securityquestion ="";
-            if(securityQues == '1') securityquestion ="City you were born in?";
-            else securityquestion = "Mother's maiden name?";
+            var securityQuestion ="";
+            if(securityQues == '1') securityQuestion ="City you were born in?";
+            else securityQuestion = "Mother's maiden name?";
             if (email) {
                 //console.log("requestCOnfig setup");
                 var requestConfig = {
@@ -296,7 +296,7 @@ function validateUserUpdateForm()
                         city: city,
                         state: state,
                         zipCode: zipCode,
-                        security:securityquestion,
+                        security:securityQuestion,
                         answer: securityAns
                     })
                 };

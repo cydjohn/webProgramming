@@ -31,6 +31,18 @@ dbConnection().then(db => {
     }).then((steven) => {
         requestBody = {
           _id: uuid.v4(),
+          title: "Gold",
+          description: "It's just gold.",
+          condition: "Shiny",
+          purchasedYear: "1776",
+          productImage: "/public/images/defaultProfilePic.jpg",
+          status: "Unsold"
+        }
+        return products.addProduct(requestBody, steven["_id"]);
+
+    }).then((goldProduct) => {
+        requestBody = {
+          _id: uuid.v4(),
           email: "stefan@stevens.edu",
           password: "BoraBora",
           firstName: "Stefan",
@@ -41,7 +53,7 @@ dbConnection().then(db => {
           city: "Amerigo",
           state: "CA",
           zipCode: 57328,
-          imagePath: "public/images/defaultProfilePic.jpg"
+          imagePath: "/public/images/defaultProfilePic.jpg"
         }
         return users.addUser(requestBody);
 
@@ -52,22 +64,10 @@ dbConnection().then(db => {
           description: "It's a rare panda!!",
           condition: "Like new",
           purchasedYear: "2009",
-          productImage: "public/images/defaultProfilePic.jpg",
+          productImage: "/public/images/defaultProfilePic.jpg",
           status: "Unsold"
         }
-        return products.addProduct(requestBody, "stefan@stevens.edu");
-
-    }).then((rareJadePanda) => {
-        requestBody = {
-          _id: uuid.v4(),
-          title: "Gold",
-          description: "It's just gold.",
-          condition: "Shiny",
-          purchasedYear: "1776",
-          productImage: "public/images/defaultProfilePic.jpg",
-          status: "Unsold"
-        }
-        return products.addProduct(requestBody, "steven@stevens.edu");
+        return products.addProduct(requestBody, stefan["_id"]);
 
     }).then(() => {
         console.log("Done seeding database");

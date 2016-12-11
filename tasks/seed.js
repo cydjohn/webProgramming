@@ -57,6 +57,18 @@ dbConnection().then(db => {
     }).then((concordiaProduct) => {
         requestBody = {
           _id: uuid.v4(),
+          title: "Koala toy",
+          description: "A round koala.",
+          condition: "Slightly used",
+          purchasedYear: "2016",
+          image: "public/images/defaultProfilePic.jpg",
+          status: "Unsold"
+        }
+        return products.addProduct(requestBody, concordiaProduct["user"]);
+
+    }).then((koalaProduct) => {
+        requestBody = {
+          _id: uuid.v4(),
           email: "stefan@stevens.edu",
           password: "BoraBora",
           firstName: "Stefan",
@@ -84,6 +96,30 @@ dbConnection().then(db => {
           status: "Unsold"
         }
         return products.addProduct(requestBody, stefan["_id"]);
+
+    }).then((jadePandaProduct) => {
+        requestBody = {
+          _id: uuid.v4(),
+          title: "Wits and Wagers",
+          description: "Betting game for all ages!",
+          condition: "Like new",
+          purchasedYear: "2008",
+          image: "public/images/defaultProfilePic.jpg",
+          status: "Unsold"
+        }
+        return products.addProduct(requestBody, jadePandaProduct["user"]);
+
+    }).then((wagerToy) => {
+        requestBody = {
+          _id: uuid.v4(),
+          title: "Galaxy Note 7",
+          description: "This one doesn't explode, great condition!",
+          condition: "Unexploded",
+          purchasedYear: "2015",
+          image: "public/images/defaultProfilePic.jpg",
+          status: "Unsold"
+        }
+        return products.addProduct(requestBody, wagerToy["user"]);
 
     }).then(() => {
         console.log("Done seeding database");

@@ -11,11 +11,10 @@ function validateSignupForm()
 
         try {
 
-           
             var email = $("#email").val();
             var password = $("#password").val();
             var cnfpassword = $("#cnfpassword").val();
-            var phone = $("#phoneNumber").val();
+            var phoneNumber = $("#phoneNumber").val();
             var lastName = $("#lastName").val();
             var firstName = $("#firstName").val();
             var city = $("#city").val();
@@ -73,7 +72,7 @@ function validateSignupForm()
                 errorCheck = true;
                 document.getElementById('cnfpassworderror').innerHTML="*Please confirm password*";
             }
-            if (!phone || phone==undefined || !phone.match(phoneValidation) || phone.length<10) {
+            if (!phoneNumber|| phoneNumber==undefined || !phoneNumber.match(phoneValidation) || phoneNumber.length<10) {
                 errorCheck = true;
                 document.getElementById('phoneerror').innerHTML="*Please provide a valid contact number*";
             }
@@ -170,7 +169,7 @@ function validateUserUpdateForm()
             var email = $("#email").val();
             var password = $("#password").val();
             var cnfpassword = $("#cnfpassword").val();
-            var phone = $("#phoneNumber").val();
+            var phoneNumber= $("#phoneNumber").val();
             var lastName = $("#lastName").val();
             var firstName = $("#firstName").val();
             var city = $("#city").val();
@@ -220,7 +219,7 @@ function validateUserUpdateForm()
                 errorCheck = true;
                 document.getElementById('cnfpassworderror').innerHTML="*Please confirm password*";
             }
-            if (!phone || phone==undefined || !phone.match(phoneValidation) || phone.length<10) {
+            if (!phoneNumber|| phoneNumber==undefined || !phoneNumber.match(phoneValidation) || phoneNumber.length<10) {
                 errorCheck = true;
                 document.getElementById('phoneerror').innerHTML="*Please provide a valid contact number*";
             }
@@ -291,7 +290,7 @@ function validateUserUpdateForm()
                         password: password,
                         firstName: firstName,
                         lastName: lastName,
-                        phone: phone,
+                        phoneNumber: phoneNumber,
                         address: address,
                         city: city,
                         state: state,

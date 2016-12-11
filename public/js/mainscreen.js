@@ -10,7 +10,7 @@
             var email = $("#email").val();
             var password = $("#password").val();
             var cnfpassword = $("#cnfpassword").val();
-            var phone = $("#phoneNumber").val();
+            var phoneNumber= $("#phoneNumber").val();
             var lastName = $("#lastName").val();
             var firstName = $("#firstName").val();
             var city = $("#city").val();
@@ -36,7 +36,7 @@
             if (!cnfpassword) errorMessage = errorMessage+"Please confirm password.\n";
             if (!firstName) errorMessage = errorMessage+"Please provide the firstName.\n";
             if (!lastName) errorMessage = errorMessage+"Please provide the lastName.\n";
-            if (!phone || phone==undefined || !phone.match(phoneValidation) || phone.length<10)
+            if (!phoneNumber || phoneNumber==undefined || !phoneNumber.match(phoneNumber) || phoneNumber.length<10)
                     errorMessage = errorMessage+"Please provide a valid contact number.\n";
             if (!address || !city || !state || !zipCode)
                 errorMessage = errorMessage+"Please provide all the address field values.\n";
@@ -71,7 +71,7 @@
                         firstName: firstName,
                         lastName: lastName,
                         gender: gender,
-                        phone: phone,
+                        phoneNumber: phoneNumber,
                         address: address,
                         city: city,
                         state: state,

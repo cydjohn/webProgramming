@@ -50,11 +50,11 @@ let exportedMethods = {
         parameters: userid of currently logged in user.
         return: products which are not uploaded by current user, to display on browse products.
      */
-    getAllProductsOtherUsers(userid) {
-        console.log("getAllProductsOtherUsers: ",userid)
+    getAllProductsOtherUsers(userId) {
+        console.log("getAllProductsOtherUsers: ", userId)
         return products().then((productsCollection) => {
             console.log(productsCollection);
-            return productsCollection.find({user : {$ne : userid}}).toArray();
+            return productsCollection.find({user: {$ne: userId}}).toArray();
         });
     },
 

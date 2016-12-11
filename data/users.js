@@ -50,7 +50,7 @@ let exportedMethods = {
                 address: requestBody.address,
                 city: requestBody.city,
                 state: requestBody.state,
-                zipcode: requestBody.zipCode,
+                zipCode: requestBody.zipCode,
                 imagePath: requestBody.image,
                 security: question,
                 answer: requestBody.securityAnswer
@@ -112,11 +112,11 @@ let exportedMethods = {
                 firstName: requestBody.firstName,
                 lastName: requestBody.lastName,
                 gender: requestBody.gender,
-                phoneNumber: requestBody.phone,
+                phoneNumber: requestBody.phoneNumber,
                 address: requestBody.address,
                 city: requestBody.city,
                 state: requestBody.state,
-                zipcode: requestBody.zipCode,
+                zipCode: requestBody.zipCode,
                 security: requestBody.security,
                 answer: requestBody.answer
             }

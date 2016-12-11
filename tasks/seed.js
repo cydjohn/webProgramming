@@ -19,7 +19,7 @@ dbConnection().then(db => {
           firstName: "Steven",
           lastName: "Yellow",
           gender: "Male",
-          phone: "+1 201-240-5678",
+          phoneNumber: "201-240-5678",
           address: "78 Turtle Street",
           city: "Turtleville",
           state: "NJ",
@@ -37,7 +37,7 @@ dbConnection().then(db => {
           description: "It's just gold.",
           condition: "Shiny",
           purchasedYear: "1776",
-          productImage: "public/images/defaultProfilePic.jpg",
+          image: "public/images/defaultProfilePic.jpg",
           status: "Unsold"
         }
         return products.addProduct(requestBody, steven["_id"]);
@@ -45,12 +45,24 @@ dbConnection().then(db => {
     }).then((goldProduct) => {
         requestBody = {
           _id: uuid.v4(),
+          title: "Concordia",
+          description: "Awesome game.",
+          condition: "New",
+          purchasedYear: "2013",
+          image: "public/images/defaultProfilePic.jpg",
+          status: "Unsold"
+        }
+        return products.addProduct(requestBody, goldProduct["user"]);
+
+    }).then((concordiaProduct) => {
+        requestBody = {
+          _id: uuid.v4(),
           email: "stefan@stevens.edu",
           password: "BoraBora",
           firstName: "Stefan",
           lastName: "Feld",
           gender: "Male",
-          phone: "+1 143-039-2939",
+          phoneNumber: "143-039-2939",
           address: "201 Castles of Burgundy",
           city: "Amerigo",
           state: "CA",
@@ -68,7 +80,7 @@ dbConnection().then(db => {
           description: "It's a rare panda!!",
           condition: "Like new",
           purchasedYear: "2009",
-          productImage: "public/images/defaultProfilePic.jpg",
+          image: "public/images/defaultProfilePic.jpg",
           status: "Unsold"
         }
         return products.addProduct(requestBody, stefan["_id"]);

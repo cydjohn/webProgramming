@@ -4,11 +4,9 @@
 
 function validateSecurity()
 {
-    console.log('validateSecurity.js')
     var returnresult = false;
     jQuery(function($) {
         try {
-            //console.log("Form submitted");
             var userSecurityAnswer = $("#answer1").val();
             var givenAnswer = $("#answer").val();
             var newpassword = $("#password").val();
@@ -16,10 +14,6 @@ function validateSecurity()
             var errorContainer = document.getElementById("error-container");
             var errorTextElement = errorContainer.getElementsByClassName("text-goes-here")[0];
             errorContainer.classList.add("hidden");
-            //alert(username);
-            //alert(password);
-            console.log(givenAnswer);
-            console.log(userSecurityAnswer);
 
             if(givenAnswer == userSecurityAnswer && !$("#password").val()) {
                 $("#questionID").hide();

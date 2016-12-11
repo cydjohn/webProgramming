@@ -11,7 +11,6 @@ const uuid = require('node-uuid');
 let exportedMethods = {
 
     getProductByID(id) {
-        console.log("inside getProductByID");
         return products().then((productsCollection) => {
                 return productsCollection.findOne({ _id: id }).then((product) => {
                     if (!product) throw "Product  not found";
@@ -30,7 +29,6 @@ let exportedMethods = {
     },
 
     getUserOfProduct(id) {
-        console.log(id);
         return products().then((productsCollection) => {
                 return productsCollection.findOne({ _id: id },{ user:1 }).then((productUser) => {
                     if (!productUser) throw "Product user not found";
@@ -41,7 +39,6 @@ let exportedMethods = {
 
     getAllProducts() {
         return products().then((productsCollection) => {
-            //console.log(productsCollection);
             return productsCollection.find({}).toArray();
         });
     },
@@ -51,9 +48,7 @@ let exportedMethods = {
         return: products which are not uploaded by current user, to display on browse products.
      */
     getAllProductsOtherUsers(userId) {
-        console.log("getAllProductsOtherUsers: ", userId)
         return products().then((productsCollection) => {
-            //console.log(productsCollection);
             return productsCollection.find({user: {$ne: userId}}).limit(2).toArray();
         });
     },
@@ -66,7 +61,6 @@ let exportedMethods = {
         return products().then((productsCollection) => {
             return productsCollection.find({user:userid}).toArray().then((allUserProducts)=>{
                 if (!allUserProducts) Promise.reject("User Products not found");
-                //console.log(allUserProducts);
                 return allUserProducts;
             });
 
@@ -78,31 +72,18 @@ let exportedMethods = {
      return: list of products found based on the search text provided.
      */
     getProductsBasedOnSearch(searchText) {
-        console.log("getProductsBasedOnSearch");
-        console.log(searchText);
-        //console.log("existing indexes: ", products.getIndexes());
-        //products.createIndex({title:"text"});
-        //products().ensureIndex({ title: "text"});
         return products().then((productsCollection) => {//$text: { $search: searchText }
             return productsCollection.find( {$text: { $search: searchText }} ).toArray().then((allUserProducts)=>{
                 if (!allUserProducts) Promise.reject("User Products not found");
-                //console.log("========================================================================");
-                //console.log( "searchText ", allUserProducts);
                 return allUserProducts;
             }).catch((e) => {
-                console.log("error in getProductsBasedOnSearch");
-                console.log(e);
-
+                console.log("Error while searching for products:", e);
             });
         });
     },
-    addProduct(requestBody,UserID) {
-        console.log("addProduct===============");
-        console.log(UserID);
-       // console.log(requestBody);
 
+    addProduct(requestBody,UserID) {
         return products().then((productsCollection) => {
-            console.log("***********");
                 let newProduct = {
                     _id: uuid.v4(),
                     user:UserID,
@@ -114,19 +95,16 @@ let exportedMethods = {
                     productImage: requestBody.image,
                     status: requestBody.status
                 };
-        console.log("newly created product");
-        //console.log(newProduct);
         return productsCollection.insertOne(newProduct).then((newProductInformation) => {
                 return newProductInformation.insertedId;
     }).then((newId) => {
-            console.log("new product ID");
-        console.log(newId);
         return this.getProductByID(newId);
     });
     }).catch((e) => {
-            console.log("Adding product exception", e);
+        console.log("Error while adding product:", e);
         });
     },
+
     removeProduct(id) {
         return products().then((productsCollection) => {
                 return productsCollection.removeOne({ _id: id }).then((deletionInfo) => {
@@ -134,8 +112,8 @@ let exportedMethods = {
             (`Could not delete product with id of ${id}`)
         }
     }).catch((err)=>{
-            console.log(err);
-    });
+        console.log("Error while removing product:", err);
+        });
     });
     },
 
@@ -185,13 +163,11 @@ let exportedMethods = {
         let updateCommand = {
             $set: updatedProdcutData
         };
-        //console.log("======");
-        //console.log(updatedProdcutData);
         return productsCollection.updateOne({ _id: id }, updateCommand).then(() => {
                 return this.getProductByID(id);
     }).catch((err)=>{
-            console.log(err);
-    });
+        console.log("Error while updating product:", err);
+        });
     });
     }
 

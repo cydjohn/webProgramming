@@ -1,34 +1,31 @@
 /**
  * Created by sanketh on 11/26/2016.
  */
-const express = require("express");
-const bodyParser = require("body-parser");
-const fs = require('fs');
-const static = express.static(__dirname + '/public');
-const configRoutes = require("./routes");
-const exphbs = require('express-handlebars');
-const Handlebars = require('handlebars');
-const passport = require("passport");
-const Strategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt-nodejs");
-const flash = require('connect-flash');
+const bodyParser = require("body-parser");
+const configRoutes = require("./routes");
 const data = require("./data");
-const userData = data.users;
-const session = require('express-session');
+const exphbs = require('express-handlebars');
+const express = require("express");
+const flash = require('connect-flash');
+const fs = require('fs');
+const Handlebars = require('handlebars');
 const multer  =   require('multer');
+const passport = require("passport");
+const session = require('express-session');
+const static = express.static(__dirname + '/public');
+const Strategy = require("passport-local").Strategy;
 const upload = multer({ dest: './public/profilePictures/' });
-//const path = require('path');
+const userData = data.users;
 const uuid = require('node-uuid');
-
 
 
 // Before asking Passport to authenticate a request, the strategy used by an application must be configured.
 // Strategies, and their configuration, are supplied via the use() function.
 passport.use('login', new Strategy({
-        passReqToCallback : true
+    passReqToCallback : true
     },
     function(req, email, password, done) {
-        console.log(email);
         // check in mongo if a user with username exists or not
         userData.getUserByEmailPassport(email,
             function(err, user) {
@@ -62,7 +59,6 @@ passport.use('login', new Strategy({
  user instances to and from the session.
  */
 passport.serializeUser(function(user, done) {
-    //console.log(user);
     done(null, user._id);
 });
 passport.deserializeUser(function(id, done) {
@@ -72,7 +68,6 @@ passport.deserializeUser(function(id, done) {
 });
 
 var isPasswordValid = function(user, password){
-    console.log(user);
     return bcrypt.compareSync(password, user.password);
 }
 
@@ -85,31 +80,27 @@ app.use(bodyParser.json());
  * Multer adds a body object and a file or files object to the request object.
  */
 app.post("/signup",upload.single('userPic'),function (req, res, next){
-    console.log("req.file");
-    console.log(req.file);
-    if(req.file){
-            var tmp_path = req.file.path;
-            var imageId = uuid.v4();
-            var target_path = 'public/profilePictures/' + imageId;
-            req.body.image = target_path;
+    if (req.file){
+        var tmp_path = req.file.path;
+        var imageId = uuid.v4();
+        var target_path = 'public/profilePictures/' + imageId;
+        req.body.image = target_path;
 
-            var src = fs.createReadStream(tmp_path);
-            var dest = fs.createWriteStream(target_path);
-            src.pipe(dest);
-            src.on('end', function() {console.log("File Uploaded Successfully"); });
-            src.on('error', function(err) { res.json({error: true,message:err}); });
-        }
-        else {
-            var target_path = 'public/images/defaultProfilePic.jpg';
-            req.body.image = target_path;
-        }
+        var src = fs.createReadStream(tmp_path);
+        var dest = fs.createWriteStream(target_path);
+        src.pipe(dest);
+        src.on('end', function() {console.log("File Uploaded Successfully"); });
+        src.on('error', function(err) { res.json({error: true,message:err}); });
+    }
+    else {
+        var target_path = 'public/images/defaultProfilePic.jpg';
+        req.body.image = target_path;
+    }
     next();
 });
 
 
 app.post("/products/editProduct",upload.single('productImage'),function (req, res, next){
-    console.log("product request");
-    console.log(req.file);
     if(req.file){
         var tmp_path = req.file.path;
         var imageId = uuid.v4();
@@ -130,8 +121,6 @@ app.post("/products/editProduct",upload.single('productImage'),function (req, re
 });
 
 app.post("/sell/sellProduct",upload.single('productImage'),function (req, res, next){
-    console.log("product request");
-    console.log(req.file);
     if(req.file){
         var tmp_path = req.file.path;
         var imageId = uuid.v4();
